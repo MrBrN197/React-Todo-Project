@@ -1,5 +1,6 @@
 
 import TodosList from './TodoList';
+import Header from './Header';
 
 import React from "react"
 const TodoContainer = () => {
@@ -25,6 +26,7 @@ const TodoContainer = () => {
 
   return (
     <div>
+      <Header />
       <TodosList todos={state.todos} />
     </div>
   );
