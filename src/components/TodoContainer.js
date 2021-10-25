@@ -56,6 +56,16 @@ const TodoContainer = () => {
     setState({todos: state.todos.filter( todo => todo.id !== id)})
   } 
 
+  const setUpdate = (updatedTitle, id) => {
+    console.log(updatedTitle, id);
+    setState({
+      todos: state.todos.map( todo => {
+        if(todo.id === id) todo.title = updatedTitle;
+        return todo;
+      })
+    })
+  }
+
   return (
     <div className="container">
       <div className="inner">
@@ -65,6 +75,7 @@ const TodoContainer = () => {
           todos={state.todos}
           handleChangeProps={handleChange}
           deleteTodoProps={delTodo}
+          setUpdate={setUpdate}
         />
       </div>
     </div>
