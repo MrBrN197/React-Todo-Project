@@ -28,9 +28,16 @@ const InputTodo = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input onChange={onChange} type="text" name="title" placeholder="Add Todo..." value={state.title} />
-      <button>Submit</button>
+    <form onSubmit={handleSubmit} className="form-container">
+      <input
+        type="text" 
+        className="input-text"
+        placeholder="Add Todo..." 
+        value={state.title}
+        name="title" 
+        onChange={onChange} 
+      />
+      <button className="input-submit">Submit</button>
     </form>
   )
 }
