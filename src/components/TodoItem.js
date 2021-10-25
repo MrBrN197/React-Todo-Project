@@ -1,5 +1,5 @@
 import styles from './TodoItem.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const TodoItem = (props) => {
 
@@ -15,7 +15,6 @@ const TodoItem = (props) => {
   const { id, completed, title } = props.todo;
 
   const handleEditing = () => {
-    console.log('double click')
     setState({editing: true});
   }
 
@@ -34,6 +33,12 @@ const TodoItem = (props) => {
       setState({editing: false})
     }
   }
+
+  useEffect(() => {
+    return () => {
+      console.log('Cleaning Up')
+    }
+  }, [])
 
   return (
     <li className={styles.item}>
