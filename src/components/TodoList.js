@@ -8,7 +8,8 @@ const TodoList = (props) => {
         <TodoItem 
           key={todo.id} 
           todo={todo}
-          handleChangeProps={props.handleChangeProps} 
+          handleChangeProps={props.handleChangeProps}
+          deleteTodoProps={props.deleteTodoProps}
         />
       ))}
     </ul>
