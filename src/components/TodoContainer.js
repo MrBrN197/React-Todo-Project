@@ -1,12 +1,10 @@
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TodosList from './TodoList';
 import Header from './Header';
 import InputTodo from './InputTodo';
 
 import { v4 as uuidv4 } from 'uuid';
-
-import React from "react"
 
 function getInitialTodos() {
   const temp = localStorage.getItem("todos")
