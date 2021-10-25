@@ -15,12 +15,16 @@ const InputTodo = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit:', state.title);
-    props.addTodoProps(state.title);
-    setState({
-      ...state,
-      title: ""
-    })
+
+    if(state.title.trim()) {
+      props.addTodoProps(state.title);
+      setState({
+        ...state,
+        title: ""
+      })
+    } else {
+      alert("Please write item");
+    }
   }
 
   return (
