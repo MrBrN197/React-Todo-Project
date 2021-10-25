@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import TodosList from './TodoList';
 import Header from './Header';
 import InputTodo from './InputTodo';
+import Navbar from './Navbar';
 
 import { v4 as uuidv4 } from 'uuid';
 import { Route, Switch } from 'react-router-dom';
@@ -57,28 +58,31 @@ const TodoContainer = () => {
   }
 
   return (
-    <Switch>
-      <Route exact path="/">
-        <div className="container">
-          <div className="inner">
-            <Header />
-            <InputTodo addTodoProps={addTodoItem} />
-            <TodosList
-              todos={state.todos}
-              handleChangeProps={handleChange}
-              deleteTodoProps={delTodo}
-              setUpdate={setUpdate}
-              />
+    <>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <div className="container">
+            <div className="inner">
+              <Header />
+              <InputTodo addTodoProps={addTodoItem} />
+              <TodosList
+                todos={state.todos}
+                handleChangeProps={handleChange}
+                deleteTodoProps={delTodo}
+                setUpdate={setUpdate}
+                />
+            </div>
           </div>
-        </div>
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-      <Route path="*">
-        <NotMatch />
-      </Route>
-    </Switch>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="*">
+          <NotMatch />
+        </Route>
+      </Switch>
+    </>
   );
 
 }
