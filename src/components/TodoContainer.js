@@ -39,6 +39,16 @@ const TodoContainer = () => {
     });
   }
 
+  const addTodoItem = title => {
+    console.log(title);
+    const newTodo = {
+      id: 4,
+      title,
+      completed: false
+    }
+    setState({todos: [...state.todos, newTodo]})
+  };
+
   const delTodo = (id) => {
     console.log('delete:', id);
     setState({todos: state.todos.filter( todo => todo.id !== id)})
@@ -47,7 +57,7 @@ const TodoContainer = () => {
   return (
     <div>
       <Header />
-      <InputTodo />
+      <InputTodo addTodoProps={addTodoItem} />
       <TodosList 
         todos={state.todos} 
         handleChangeProps={handleChange}
