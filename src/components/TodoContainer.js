@@ -1,3 +1,6 @@
+
+import TodosList from './TodoList';
+
 import React from "react"
 const TodoContainer = () => {
   const state = {
@@ -21,12 +24,10 @@ const TodoContainer = () => {
   };
 
   return (
-    <ul>
-      {state.todos.map(todo => (
-        <li>{todo.title}</li>
-      ))}
-    </ul>
-  )
+    <div>
+      <TodosList todos={state.todos} />
+    </div>
+  );
 
 }
 export default TodoContainer
