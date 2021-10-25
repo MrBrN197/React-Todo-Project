@@ -1,6 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
+import { MdClose } from 'react-icons/md';
+import { FiMenu } from 'react-icons/fi';
+
 const Navbar = () => {
 
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -26,7 +29,11 @@ const Navbar = () => {
   return (
     <nav className="navBar">
       <button onClick={() => setNavbarOpen(!navbarOpen)}>
-        {navbarOpen ? 'Close' : 'Open'}
+        {navbarOpen ? (
+          <MdClose style={{color: "#fff", width: "2.5rem", height: "2.5rem"}}/>
+        ) : (
+          <FiMenu style={{color: "#7b7b7b", width: "2.5rem", height: "2.5rem"}}/>
+        )}
       </button>
       <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
         {links.map( link => (
