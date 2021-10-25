@@ -1,9 +1,11 @@
+import TodoItem from './TodoItem'; 
+
 
 const TodoList = (props) => {
   return (
     <ul>
       {props.todos.map(todo => (
-        <li key={todo.id}>{todo.title}</li>
+        <TodoItem key={todo.id} todo={todo}/>
       ))}
     </ul>
   )
