@@ -1,7 +1,9 @@
 
 const TodoItem = (props) => {
   return (
-    <li>{props.todo.title}</li>
+    <li>
+      <input type="checkbox"/>{props.todo.title}
+    </li>
   )
 }
 
