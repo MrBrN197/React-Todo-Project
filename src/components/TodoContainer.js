@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import TodosList from './TodoList';
 import Header from './Header';
+import InputTodo from './InputTodo';
 
 import React from "react"
 const TodoContainer = () => {
@@ -46,6 +47,7 @@ const TodoContainer = () => {
   return (
     <div>
       <Header />
+      <InputTodo />
       <TodosList 
         todos={state.todos} 
         handleChangeProps={handleChange}
