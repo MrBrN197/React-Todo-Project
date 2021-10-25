@@ -20,7 +20,7 @@ const SinglePage = () => {
   const { title, description } = aboutData.find( item => item.slug === slug);
 
   return (
-    <div>
+    <div className="main__content">
       <h1>{title}</h1>
       <p>{description}</p>
     </div>
