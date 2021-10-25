@@ -1,10 +1,11 @@
 
+import { useState } from 'react';
 import TodosList from './TodoList';
 import Header from './Header';
 
 import React from "react"
 const TodoContainer = () => {
-  const state = {
+  const [state, setState] = useState({
     todos: [
       {
         id: 1,
@@ -22,12 +23,24 @@ const TodoContainer = () => {
         completed: false
       }
     ]
-  };
+  });
 
+  const handleChange = (id) => {
+    console.log('clicked', id);
+    setState({
+      todos: state.todos.map( todo => {
+        if(todo.id === id) {
+          console.log('changing id:', id)
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
+    });
+  }
   return (
     <div>
       <Header />
-      <TodosList todos={state.todos} />
+      <TodosList todos={state.todos} handleChangeProps={handleChange}/>
     </div>
   );
 
