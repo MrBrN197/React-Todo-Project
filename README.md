@@ -2,11 +2,15 @@
 
 > A simple ReactJS Todo project
 
+## [Live Link](https://mrbrn197.github.io/React-Todo-Project)
+
+[![Image](./preview.png)](https://mrbrn197.github.io/React-Todo-Project)
+
 ## Built With
 
 - ReactJS
 - CSS
-- Webhint, Stylelint
+- Eslint, Stylelint
 
 ## Getting Started
 
@@ -16,7 +20,7 @@ To get a local copy up and running clone the repo and run
 
 ### Install
 
-to build a the project into `./dist` folder run
+to build a the project into `./build` folder run
 
 `npm run build`
 
@@ -32,6 +36,7 @@ to serve the application on `localhost` run
 
 - GitHub: [@MrBrN197](https://github.com/githubhandle)
 - LinkedIn: [brianorora](https://www.linkedin.com/in/brian-orora-2b7883a7/)
+- Twitter [@MrBrN197](https://twitter.com/MrBrN197)
 
 ## 🤝 Contributing
 
