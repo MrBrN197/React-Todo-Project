@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import styles from './TodoItem.module.css';
@@ -33,10 +33,6 @@ const TodoItem = (props) => {
       setState({ editing: false });
     }
   };
-
-  useEffect(() => () => {
-    console.log('Cleaning Up');
-  }, []);
 
   return (
     <li className={styles.item}>

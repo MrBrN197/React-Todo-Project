@@ -22,8 +22,6 @@ const InputTodo = (props) => {
         ...state,
         title: '',
       });
-    } else {
-      alert('Please write item');
     }
   };
 
