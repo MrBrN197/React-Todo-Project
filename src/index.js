@@ -5,12 +5,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import TodoContainer from './components/TodoContainer';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <TodoContainer/>
+      <TodoContainer />
     </Router>
   </React.StrictMode>,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);

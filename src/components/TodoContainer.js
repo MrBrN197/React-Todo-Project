@@ -1,20 +1,18 @@
-
 import React, { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { Route, Switch } from 'react-router-dom';
 import TodosList from './TodoList';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import Navbar from './Navbar';
 
-import { v4 as uuidv4 } from 'uuid';
-import { Route, Switch } from 'react-router-dom';
-
 import About from '../pages/About';
 import NotMatch from '../pages/NotMatch';
 
 function getInitialTodos() {
-  const temp = localStorage.getItem("todos")
+  const temp = localStorage.getItem('todos');
   const savedTodos = JSON.parse(temp);
-  return {todos: savedTodos || []};
+  return { todos: savedTodos || [] };
 }
 
 const TodoContainer = () => {
@@ -22,40 +20,42 @@ const TodoContainer = () => {
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(state.todos));
-  }, [state.todos])
+  }, [state.todos]);
 
   const handleChange = (id) => {
     setState({
-      todos: state.todos.map( todo => {
-        if(todo.id === id) {
-          todo.completed = !todo.completed;
+      todos: state.todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
         }
         return todo;
-      })
+      }),
     });
-  }
+  };
 
-  const addTodoItem = title => {
+  const addTodoItem = (title) => {
     const newTodo = {
       id: uuidv4(),
       title,
-      completed: false
-    }
-    setState({todos: [...state.todos, newTodo]})
+      completed: false,
+    };
+    setState({ todos: [...state.todos, newTodo] });
   };
 
   const delTodo = (id) => {
-    setState({todos: state.todos.filter( todo => todo.id !== id)})
-  }
+    setState({ todos: state.todos.filter((todo) => todo.id !== id) });
+  };
 
   const setUpdate = (updatedTitle, id) => {
     setState({
-      todos: state.todos.map( todo => {
-        if(todo.id === id) todo.title = updatedTitle;
+      todos: state.todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, title: updatedTitle };
+        }
         return todo;
-      })
-    })
-  }
+      }),
+    });
+  };
 
   return (
     <>
@@ -71,7 +71,7 @@ const TodoContainer = () => {
                 handleChangeProps={handleChange}
                 deleteTodoProps={delTodo}
                 setUpdate={setUpdate}
-                />
+              />
             </div>
           </div>
         </Route>
@@ -84,6 +84,5 @@ const TodoContainer = () => {
       </Switch>
     </>
   );
-
-}
-export default TodoContainer
+};
+export default TodoContainer;

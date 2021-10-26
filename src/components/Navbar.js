@@ -5,41 +5,40 @@ import { MdClose } from 'react-icons/md';
 import { FiMenu } from 'react-icons/fi';
 
 const Navbar = () => {
-
-  const [navbarOpen, setNavbarOpen] = useState(false)
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
   const links = [
     {
       id: 1,
-      path: "/",
-      text: "Home",
+      path: '/',
+      text: 'Home',
     },
     {
       id: 2,
-      path: "/about",
-      text: "About",
+      path: '/about',
+      text: 'About',
     },
-  ]
-
+  ];
 
   const closeMenu = () => {
     setNavbarOpen(false);
-  }
+  };
 
   return (
     <nav className="navBar">
-      <button onClick={() => setNavbarOpen(!navbarOpen)}>
+      <button type="button" onClick={() => setNavbarOpen(!navbarOpen)}>
         {navbarOpen ? (
-          <MdClose style={{color: "#fff", width: "2.5rem", height: "2.5rem"}}/>
+          <MdClose style={{ color: '#fff', width: '2.5rem', height: '2.5rem' }} />
         ) : (
-          <FiMenu style={{color: "#7b7b7b", width: "2.5rem", height: "2.5rem"}}/>
+          <FiMenu style={{ color: '#7b7b7b', width: '2.5rem', height: '2.5rem' }} />
         )}
       </button>
-      <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
-        {links.map( link => (
+      <ul className={`menuNav ${navbarOpen ? ' showMenu' : ''}`}>
+        {links.map((link) => (
           <li key={link.id}>
-            <NavLink 
-              to={link.path} exact 
+            <NavLink
+              to={link.path}
+              exact
               activeClassName="active-link"
               onClick={() => closeMenu()}
             >
@@ -49,6 +48,6 @@ const Navbar = () => {
         ))}
       </ul>
     </nav>
-  )
-}
+  );
+};
 export default Navbar;
