@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 const InputTodo = (props) => {
   const [state, setState] = useState({
@@ -43,6 +44,10 @@ const InputTodo = (props) => {
       </button>
     </form>
   );
+};
+
+InputTodo.propTypes = {
+  addTodoProps: PropTypes.func.isRequired,
 };
 
 export default InputTodo;

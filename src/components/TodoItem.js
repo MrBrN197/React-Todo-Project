@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 import styles from './TodoItem.module.css';
 
 const TodoItem = (props) => {
@@ -12,7 +13,7 @@ const TodoItem = (props) => {
     textDecoration: 'line-through',
   };
 
-  const { id, completed, title } = props.todo;
+  const { todo: { id, completed, title } } = props;
 
   const handleEditing = () => {
     setState({ editing: true });
@@ -63,6 +64,17 @@ const TodoItem = (props) => {
       />
     </li>
   );
+};
+
+TodoItem.propTypes = {
+  setUpdate: PropTypes.func.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
+  handleChangeProps: PropTypes.func.isRequired,
+  todo: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default TodoItem;
